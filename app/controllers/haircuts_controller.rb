@@ -6,7 +6,7 @@ class HaircutsController < ApplicationController
     @haircuts = Haircut.all
   end
 
-  def shown
-
+  def show
+    @haircut = Haircut.find(params[:id])
   end
 end
