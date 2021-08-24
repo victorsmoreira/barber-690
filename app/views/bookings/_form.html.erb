@@ -4,5 +4,5 @@
   <%= f.input :price %>
   <%= f.association :haircut, label_method: :style %>
   <%= f.association :user, label_method: :full_name %>
-  <%= f.submit 'Book haircut', class: 'btn btn-primary' %> <%= link_to 'Cancel', haircuts_path, class: 'btn btn-danger' %>
+  <%= f.submit class: 'btn btn-primary' %> <%= link_to 'Cancel', haircuts_path, class: 'btn btn-danger' %>
 <% end %>
