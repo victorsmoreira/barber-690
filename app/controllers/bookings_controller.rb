@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit show]
+
+  before_action :set_booking, only: %i[edit show destroy]
 
   def edit; end
 
@@ -8,6 +9,12 @@ class BookingsController < ApplicationController
   end
 
   def show; end
+
+
+  def destroy
+    @booking.destroy
+    redirect_to haircut_path(@booking.haircut)
+  end
 
   private
 
