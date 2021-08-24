@@ -24,3 +24,13 @@ end
     category: Faker::Restaurant.type
   )
 end
+
+5.times do
+  Bookgin.create(
+    user: User.all.sample,
+    haircut: Haircut.all.sample,
+    appointment: Time.now,
+    rating: rand(0..5),
+    price: rand(10..50)
+  )
+end
