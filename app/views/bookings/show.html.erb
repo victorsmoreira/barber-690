@@ -1,0 +1,9 @@
+<div class="container">
+<h1>Appointments of the day: </h1>
+
+<p>Date: <%= @booking.appointment %></p>
+<p>Rating: <%= @booking.rating || '-' %><p>
+<p>Price: <%= @booking.price %><p>
+<p>Haircut Style: <%= @booking.haircut.style %><p>
+<p>Client Name: <%= @booking.haircut.user.full_name %><p>
+</div>
