@@ -1,0 +1,6 @@
+<%= simple_form_for @haircut do |f| %>
+  <%= f.input :style %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.submit 'Edit haircut', class: 'btn btn-primary' %> <%= link_to 'Cancel', haircuts_path, class: 'btn btn-danger' %>
+<% end %>
