@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.haircut = Haircut.find(params[:haircut_id])
     @booking.price = @booking.haircut.price
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to buyer_path
     else
       render :new
     end
