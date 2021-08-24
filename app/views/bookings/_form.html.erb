@@ -1,0 +1,8 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :appointment %>
+  <%= f.input :rating %>
+  <%= f.input :price %>
+  <%= f.association :haircut, label_method: :style %>
+  <%= f.association :user, label_method: :full_name %>
+  <%= f.submit 'Book haircut', class: 'btn btn-primary' %> <%= link_to 'Cancel', haircuts_path, class: 'btn btn-danger' %>
+<% end %>

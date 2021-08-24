@@ -26,7 +26,7 @@ end
 end
 
 5.times do
-  Bookgin.create(
+  Booking.create(
     user: User.all.sample,
     haircut: Haircut.all.sample,
     appointment: Time.now,
