@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
 
   def show; end
 
-
   def destroy
     @booking.destroy
     redirect_to haircut_path(@booking.haircut)
