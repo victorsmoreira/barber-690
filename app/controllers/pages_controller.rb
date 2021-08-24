@@ -5,8 +5,12 @@ class PagesController < ApplicationController
     redirect_to haircuts_path
   end
 
-  def dashboard
+  def seller
     @haircuts = current_user.haircuts
+    @bookings = Booking.includes(haircut: [:user]).where(haircut: { user: current_user })
+  end
+
+  def buyer
     @bookings = current_user.bookings
   end
 end
