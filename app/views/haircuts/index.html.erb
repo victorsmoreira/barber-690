@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Haircuts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @haircuts.each do |haircut| %>
+      <tr>
+        <td><%= haircut.style %></td>
+        <td><%= haircut.category %></td>
+        <td><%= haircut.price %></td>
+        <td><%= link_to 'Show', haircut %></td>
+        <%# <td><%= link_to 'Edit', edit_haircut_path(haircut) %></td>
+        <%# <td><%= link_to 'Destroy', haircut, method: :delete, data: { confirm: 'Are you sure?' } </td> %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Haircut', new_haircut_path %>

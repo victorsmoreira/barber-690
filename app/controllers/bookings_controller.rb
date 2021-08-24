@@ -1,7 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit]
+  before_action :set_booking, only: %i[edit show]
 
   def edit; end
+
+  def index
+    @bookings = Booking.all
+  end
+
+  def show; end
 
   private
 
