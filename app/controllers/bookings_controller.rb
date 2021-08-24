@@ -3,12 +3,19 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @haircut = Haircut.find(params[:haircut_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.save
-    redirect_to booking_path(@booking)
+    @booking.user = current_user
+    @booking.haircut = Haircut.find(params[:haircut_id])
+    @booking.price = @booking.haircut.price
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def edit; end
