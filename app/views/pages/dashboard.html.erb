@@ -18,14 +18,13 @@
           <td><%= haircut.category %></td>
           <td><%= haircut.price %></td>
           <td><%= link_to 'Show', haircut %></td>
-          <%# <td><%= link_to 'Edit', edit_haircut_path(haircut) %></td>
-          <%# <td><%= link_to 'Destroy', haircut, method: :delete, data: { confirm: 'Are you sure?' } </td> %>
+          <td><%= link_to 'Edit', edit_haircut_path(haircut) %></td>
+          <td><%= link_to 'Destroy', haircut, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
-    <p>placeholder new haircut</p>
-    <%#link_to 'Add New Haircut', new_haircut_path %>
   </table>
+  <%= link_to 'Add New Haircut', new_haircut_path %>
 </div>
 
 <div>

@@ -8,8 +8,9 @@ class HaircutsController < ApplicationController
 
   def create
     @haircut = Haircut.new(haircut_params)
+    @haircut.user = current_user
     @haircut.save
-    redirect_to haircut_path(@haircut)
+    redirect_to dashboard_path
   end
 
   def edit; end
@@ -22,7 +23,7 @@ class HaircutsController < ApplicationController
 
   def update
     if @haircut.update(haircut_params)
-      redirect_to @haircut
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -30,7 +31,7 @@ class HaircutsController < ApplicationController
 
   def destroy
     @haircut.destroy
-    redirect_to haircuts_path
+    redirect_to dashboard_path
   end
 
   private
