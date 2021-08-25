@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to haircut_path(@booking.haircut)
+    @booking.haircut.user == current_user ? redirect_to(seller_path) : redirect_to(buyer_path)
   end
 
   private
