@@ -4,4 +4,8 @@ class Haircut < ApplicationRecord
 
   validates :style, :price, presence: true
   validates :style, uniqueness: { scope: :user }
+
+  def avg_rating
+    # calc
+  end
 end

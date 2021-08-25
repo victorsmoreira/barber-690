@@ -2,6 +2,10 @@ class HaircutsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home index show]
   before_action :set_haircut, only: %i[edit show update destroy]
 
+  def index
+    @haircuts = Haircut.all
+  end
+
   def new
     @haircut = Haircut.new
   end
@@ -14,10 +18,6 @@ class HaircutsController < ApplicationController
   end
 
   def edit; end
-
-  def index
-    @haircuts = Haircut.all
-  end
 
   def show; end
 
