@@ -1,10 +1,13 @@
 <h1>Dashboard vendedor</h1>
-
+<br>
 <div>
   <h2>My Haircuts</h2>
-  <table>
+  <table class='table'>
     <thead>
       <tr>
+        <th>Style</th>
+        <th>Category</th>
+        <th>Price</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,19 +20,22 @@
           <td><%= haircut.price %></td>
           <td><%= link_to 'Show', haircut %></td>
           <td><%= link_to 'Edit', edit_haircut_path(haircut) %></td>
-          <td><%= link_to 'Destroy', haircut, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', haircut, class:'text-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Add New Haircut', new_haircut_path %>
+  <%= link_to 'Add New Haircut', new_haircut_path, class:'btn btn-primary' %>
 </div>
-
+<br><br>
 <div>
   <h2>My bookings</h2>
-  <table>
+  <table class='table'>
     <thead>
       <tr>
+        <th>Appointment</th>
+        <th>Rating</th>
+        <th>Price</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -37,12 +43,12 @@
     <tbody>
       <% @bookings.each do |booking| %>
         <tr>
-          <td><%= booking.appointment %></td>
+          <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
           <td><%= booking.rating %></td>
           <td><%= booking.price %></td>
           <td><%= link_to 'Show', booking %></td>
           <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-          <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', booking, class:'text-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
