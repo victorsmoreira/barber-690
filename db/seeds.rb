@@ -5,32 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+haircuts = %w[Undercut Militar Moicano]
+styles = %w[Baixo Médio Alto]
 
-10.times do
-  User.create(
-    email: Faker::Internet.email,
-    password: '123456',
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    address: Faker::Address.full_address
-  )
-end
+User.create(
+  email: 'victor@barbier.com',
+  password: '123123',
+  first_name: 'Victor',
+  last_name: 'Moreira',
+  address: 'Rua Jericó, 193, São Paulo'
+)
 
-10.times do
+User.create(
+  email: 'giovanni@barbier.com',
+  password: '123123',
+  first_name: 'Giovanni',
+  last_name: 'Guadagnucci',
+  address: 'Rua Mourato Coelho, 208, São Paulo'
+)
+
+User.create(
+  email: 'jose@barbier.com',
+  password: '123123',
+  first_name: 'José',
+  last_name: 'Carlos',
+  address: 'R. Paris, 227, São Paulo'
+)
+
+haircuts.each do |haircut|
   Haircut.create(
-    user_id: rand(1..10),
-    style: Faker::Restaurant.name,
+    user_id: 1,
+    style: haircut,
     price: rand(10..50),
-    category: Faker::Restaurant.type
+    category: styles.sample
   )
 end
 
-5.times do
+10.times do
   Booking.create(
     user: User.all.sample,
     haircut: Haircut.all.sample,
     appointment: Time.now,
-    rating: rand(0..5),
+    rating: rand(3..5),
     price: rand(10..50)
   )
 end
