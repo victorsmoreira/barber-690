@@ -3,4 +3,4 @@
 <p><strong>Style:</strong> <%= @haircut.style %></p>
 <p><strong>Category:</strong> <%= @haircut.category %></p>
 <p><strong>Price:</strong> <%= @haircut.price %></p>
-<%= link_to 'Back', haircuts_path %>
+<%= link_to 'Back', haircuts_path %> <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut) %>
