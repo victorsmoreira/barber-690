@@ -2,25 +2,25 @@
 
 <div class="d-flex align-items-center my-4 show-title">
   <div class="p-2">
-    <%= image_tag("logo.png", class: 'avatar') %>
+    <%= image_tag("logo.png") %>
   </div>
   <div class="d-flex align-items-center p-2">
-    <h1>Haircut</h1><span class="haircut-rating ml-2"><%= 4.0 %></span>
+    <h1><%= @haircut.style %></h1><span class="haircut-rating ml-2 text-warning"><%= 4.0 %> <i class="fas fa-star"></i></span>
   </div>
 </div>
 
 <div class="row d-flex align-items-center" style="margin: auto">
     <div class="col-5">
       <div class = "card-show-wrapper">
-        <%= image_tag('logo.png', class: 'fit-image') %>
+        <%= image_tag('avatar_placeholder.jpg') %>
         <div class = 'card-show-content'>
-          <h3><%= @haircut.style %></h3>
+          <h3><%= @haircut.user.full_name %></h3>
           <p class = "card-show-details"><%= @haircut.category %></p>
           <p class = "price"><span class = "discount-price">US$ <%= "#{(@haircut.price * 0.95).round}.0"%></span><span class = "original-price">US$ <%= @haircut.price %></span></p>
-          <%= link_to 'Back', haircuts_path %> <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut) %>
+          <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-primary' %> <%= link_to 'Back', haircuts_path, class: 'btn btn-danger' %>
         </div>
       </div>
     </div>
-    <div class="col-7" style="background-image: url(https://via.placeholder.com/150); background-size: cover; width: 100%; height: 50vh; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);">
+    <div class="col-7" style="background-image: url(https://via.placeholder.com/400); background-size: cover; width: 100%; height: 50vh; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05); background-position: center">
     </div>
 </div>

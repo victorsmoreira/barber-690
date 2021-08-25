@@ -1,5 +1,9 @@
 .show-banner {
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: overlay;
+  background-image: url("https://source.unsplash.com/1600x900/?barber");
+  background-size: cover;
+  background-position: center;
   height: 200px;
   border-radius: 5px;
   margin: auto;
