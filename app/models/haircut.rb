@@ -6,6 +6,7 @@ class Haircut < ApplicationRecord
   validates :style, uniqueness: { scope: :user }
 
   def avg_rating
-    # calc
+    ratings = bookings.map(&:rating).compact
+    ratings.any? ? (ratings.reduce(:+) / ratings.size.to_f).round(1) : '-'
   end
 end
