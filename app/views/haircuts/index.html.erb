@@ -1,22 +1,18 @@
 <h1>Haircuts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @haircuts.each do |haircut| %>
-      <tr>
-        <td><%= haircut.style %></td>
-        <td><%= haircut.category %></td>
-        <td><%= haircut.price %></td>
-        <td><%= link_to 'Show', haircut %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="cards-wrapper">
+  <% @haircuts.each do |haircut| %>
+    <div class="card-index col-sm-12 col-md-6 col-lg-4">
+      <%= link_to haircut, class:'d-flex' do %>
+        <%= image_tag 'logo.png' %>
+        <div class="card-index-info">
+          <h2><%= haircut.style %></h2>
+          <p><%= haircut.category %> •
+            <span class='card-index-rating text-warning'><%= 4.7 %> <i class="fas fa-star"></i></span>
+          </p>
+          <p>US$ <%= haircut.price %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
