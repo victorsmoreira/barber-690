@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Edit Booking</h1>
-
-  <%= simple_form_for @booking do |f| %>
-    <%= f.input :appointment %>
-
-    <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
-  <% end %>
-
+  <div class="p-3">
+    <h1>Booking</h1>
+    <%= simple_form_for @booking do |f| %>
+      <%= f.input :appointment %>
+      <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
+    <% end %>
+  </div>
 </div>

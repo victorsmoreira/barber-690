@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: linear-gradient(#f81f1450, #f81f1450),
+    url(https://media.istockphoto.com/vectors/barber-shop-seamless-pattern-with-hand-drawn-razor-scissors-shaving-vector-id1142250901?k=6&m=1142250901&s=612x612&w=0&h=4Z5soDtT3tE5wtTOOrAdALCv-_bo3Vu0hNxz2g9hKHI=);
+}
+
+.container {
+  background-color: white;
+  min-height: 80vh;
+  padding: 16px;
+  margin-top: 48px;
+}

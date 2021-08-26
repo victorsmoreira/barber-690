@@ -1,6 +1,20 @@
-<h1>Haircuts</h1>
+<div class="banner-index">
+  <div class="container-banner container">
+    <div class= 'wrapper'>
+      <div>
+        <h1><strong>Le Barbier</strong>!</h1>
+        <p>The place where customers can find barbers and barbers can find customers</p>
+      </div>
+      <div>
+        <p><%= link_to "Find a barber close to your!", "#cards-wrapper", class:'btn btn-danger'%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br id= "cards-wrapper">
 
-<div class="cards-wrapper">
+<div class='container'>
+  <div class="cards-wrapper">
   <% @haircuts.each do |haircut| %>
     <div class="card-index col-sm-12 col-md-6 col-lg-4">
       <%= link_to haircut, class:'d-flex' do %>
@@ -15,4 +29,5 @@
       <% end %>
     </div>
   <% end %>
-</div>
+  </div>
+<div>
