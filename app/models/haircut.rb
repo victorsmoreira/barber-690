@@ -1,6 +1,7 @@
 class Haircut < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_one_attached :image
 
   validates :style, :price, presence: true
   validates :style, uniqueness: { scope: :user }
