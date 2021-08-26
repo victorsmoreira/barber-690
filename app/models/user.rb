@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :haircuts
   has_many :bookings
+  has_one_attached :avatar
+  has_one_attached :barbershop
 
   def full_name
     "#{first_name} #{last_name}"

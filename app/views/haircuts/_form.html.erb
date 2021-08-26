@@ -1,6 +1,7 @@
 <%= simple_form_for @haircut do |f| %>
-<%= f.input :style %>
-<%= f.input :category %>
-<%= f.input :price %>
-<%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', seller_path, class: 'text text-secondary'%>
+  <%= f.input :style %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.input :image, as: :file %>
+  <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', seller_path, class: 'text text-secondary'%>
 <% end %>
