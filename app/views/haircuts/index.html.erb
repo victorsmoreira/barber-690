@@ -4,7 +4,7 @@
   <% @haircuts.each do |haircut| %>
     <div class="card-index col-sm-12 col-md-6 col-lg-4">
       <%= link_to haircut, class:'d-flex' do %>
-        <%= image_tag 'logo.png' %>
+        <div class="card-index-img" style="background-image: url('<%= (cl_image_path (haircut.image.attached? ? haircut.image.key : 'https://res.cloudinary.com/dezzorfmt/image/upload/v1629996184/d_placeholder_sl0v6p.jpg' ), height: 200, crop: :fill) %>')"></div>
         <div class="card-index-info">
           <h2><%= haircut.style %></h2>
           <p><%= haircut.category %> •

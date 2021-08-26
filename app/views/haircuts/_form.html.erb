@@ -2,5 +2,6 @@
   <%= f.input :style %>
   <%= f.input :category %>
   <%= f.input :price %>
+  <%= f.input :image, as: :file %>
   <%= f.submit class: 'btn btn-primary' %> <%= link_to 'Cancel', seller_path, class: 'text text-secondary'%>
 <% end %>
