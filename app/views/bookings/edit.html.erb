@@ -1,10 +1,18 @@
 <div class="container">
   <h1>Edit Booking</h1>
 
-  <%= simple_form_for @booking do |f| %>
-    <%= f.input :appointment %>
+  <% if @booking.appointment > Time.now %>
+    <%= simple_form_for @booking do |f| %>
+      <%= f.input :appointment %>
 
-    <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
+      <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for @booking do |f| %>
+     <%= f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+
+
+      <%= f.submit class: 'btn btn-success' %>
+    <% end %>
   <% end %>
-
 </div>

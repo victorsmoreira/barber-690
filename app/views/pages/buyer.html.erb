@@ -36,8 +36,12 @@
           <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
           <td><%= booking.haircut.user.address %></td>
           <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
+          <%= link_to edit_booking_path(booking) do %>
+            <i class="fas fa-star"></i>
+          <% end %>
         <tr>
       <% end %>
+                 <!--Definir o link_to update bookings link_to 'Update'  -->
     </tbody>
   </table>
 </div>
