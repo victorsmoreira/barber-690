@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    @booking.haircut.user == current_user ? redirect_to(seller_path) : redirect_to(buyer_path)
   end
 
   def index

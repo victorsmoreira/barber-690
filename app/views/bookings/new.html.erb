@@ -3,6 +3,6 @@
 
   <%= simple_form_for [@haircut, @booking] do |f| %>
     <%= f.input :appointment %>
-    <%= f.submit "Book for US$#{@haircut.price.round}", class: 'btn btn-primary' %> <%= link_to 'Cancel', haircut_path(@haircut), class: 'btn btn-danger' %>
+    <%= f.submit "Book for US$#{'%.2f' % @haircut.price.round}", class: 'btn btn-primary' %> <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
   <% end %>
 </div>

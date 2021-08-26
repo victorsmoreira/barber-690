@@ -5,9 +5,8 @@
       <tr>
         <th>Barbier</th>
         <th>Time</th>
-        <th>Price</th>
         <th>Address</th>
-        <th colspan="3"></th>
+        <th>Price</th>
       </tr>
     </thead>
 
@@ -16,12 +15,28 @@
         <tr>
           <td><%= booking.haircut.user.full_name %></td>
           <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
-          <td><%= booking.price %></td>
           <td><%= booking.haircut.user.address %></td>
-          <td><%= link_to 'Show', booking %></td>
-          <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-          <td><%= link_to 'Destroy', booking, class:'text-danger' , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
+            <% if booking.appointment > Time.now %>
+              <div class="nav-item dropdown border-0">
+                <%= image_tag "dropdown.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                  <%# link_to 'Show', booking, class:'dropdown-item' %>
+                  <%= link_to 'Reschedule', edit_booking_path(booking), class:'dropdown-item' %>
+                  <%= link_to 'Cancel appointment', booking, class:'text-danger dropdown-item' , method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
+            <% end %>
+          </td>
         </tr>
+      <% end %>
+      <% @past_bookings.each do |booking| %>
+        <tr class='record-past'>
+          <td><%= booking.haircut.user.full_name %></td>
+          <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= booking.haircut.user.address %></td>
+          <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
+        <tr>
       <% end %>
     </tbody>
   </table>

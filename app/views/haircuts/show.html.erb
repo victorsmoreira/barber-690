@@ -16,8 +16,8 @@
         <div class = 'card-show-content'>
           <h3><%= @haircut.user.full_name %></h3>
           <p class = "card-show-details"><%= @haircut.category %></p>
-          <p class = "price"><span class = "discount-price">US$ <%= "#{(@haircut.price * 0.95).round}.0"%></span><span class = "original-price">US$ <%= @haircut.price %></span></p>
-          <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-primary' %> <%= link_to 'Back', haircuts_path, class: 'btn btn-danger' %>
+          <p class = "price"><span class = "discount-price">US$ <%= "#{'%.2f' % (@haircut.price * 0.98)}"%></span><span class = "original-price">US$ <%= '%.2f' % @haircut.price %></span></p>
+          <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-danger' %> <%= link_to 'Back', haircuts_path, class: 'text text-secondary' %>
         </div>
       </div>
     </div>
