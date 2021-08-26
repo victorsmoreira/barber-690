@@ -6,28 +6,28 @@
         <p>The place where customers can find barbers and barbers can find customers</p>
       </div>
       <div>
-        <p><%= link_to "Find a barber close to your!", "#cards-wrapper", class:'btn btn-danger'%></p>
+        <p><%= link_to "Find a barber close to you!", "#cards-wrapper", class:'btn btn-danger'%></p>
       </div>
     </div>
   </div>
 </div>
-<br id= "cards-wrapper">
+<br id="cards-wrapper">
 
 <div class='container'>
   <div class="cards-wrapper">
-  <% @haircuts.each do |haircut| %>
-    <div class="card-index col-sm-12 col-md-6 col-lg-4">
-      <%= link_to haircut, class:'d-flex' do %>
-        <div class="card-index-img" style="background-image: url('<%= (cl_image_path (haircut.image.attached? ? haircut.image.key : 'https://res.cloudinary.com/dezzorfmt/image/upload/v1629996184/d_placeholder_sl0v6p.jpg' ), height: 200, crop: :fill) %>')"></div>
-        <div class="card-index-info">
-          <h2><%= haircut.style %></h2>
-          <p><%= haircut.category %> •
-            <span class='card-index-rating text-warning'><%= haircut.avg_rating %> <i class="fas fa-star"></i></span>
-          </p>
-          <p>US$ <%= '%.2f' % haircut.price %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+    <% @haircuts.each do |haircut| %>
+      <div class="card-index col-sm-12 col-md-6 col-lg-4">
+        <%= link_to haircut, class:'d-flex' do %>
+          <div class="card-index-img" style="background-image: url('<%= (cl_image_path (haircut.image.attached? ? haircut.image.key : 'https://res.cloudinary.com/dezzorfmt/image/upload/v1629996184/d_placeholder_sl0v6p.jpg' ), height: 200, crop: :fill) %>')"></div>
+          <div class="card-index-info">
+            <h2><%= haircut.style %></h2>
+            <p><%= haircut.category %> •
+              <span class='card-index-rating text-warning'><%= haircut.avg_rating %> <i class="fas fa-star"></i></span>
+            </p>
+            <p>US$ <%= '%.2f' % haircut.price %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <div>

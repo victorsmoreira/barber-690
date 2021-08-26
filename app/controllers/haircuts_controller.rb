@@ -24,7 +24,9 @@ class HaircutsController < ApplicationController
       {
         id: @haircut.user.id,
         lat: @haircut.user.latitude,
-        lng: @haircut.user.longitude
+        lng: @haircut.user.longitude,
+        # info_window: render_to_string(locals: { haircut: @haircut }),
+        image_url: helpers.asset_url('marker.png')
       }
     ]
   end
