@@ -6,6 +6,7 @@
   width: 100%;
   z-index: 1;
   box-shadow: 0px 1px 4px $shadow;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,14 +17,21 @@
   width: 40px;
 }
 
+// ------------- navbar-home
+
 .navbar-home {
   justify-content: space-between;
-  background-color: rgb(255, 255, 255);
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   box-shadow: 0px 1px 4px $shadow;
+  background-color: transparent;
+  transition: 0.2s background-color ease;
+}
+
+.navbar-home-white {
+  background-color: white;
 }
 
 .navbar-home .navbar-collapse {
