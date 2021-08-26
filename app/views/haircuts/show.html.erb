@@ -1,4 +1,5 @@
-<div class ="show-banner" style="background-image: url('<%= cl_image_path((current_user.barbershop.attached? ? current_user.barbershop : 'https://res.cloudinary.com/dezzorfmt/image/upload/v1629999257/d_barbershop_wewj1y.jpg'), height: 200, crop: :fill) %>')"></div>
+<div class="container">
+  <div class ="show-banner" style="background-image: url('<%= cl_image_path((current_user.barbershop.attached? ? current_user.barbershop : 'https://res.cloudinary.com/dezzorfmt/image/upload/v1629999257/d_barbershop_wewj1y.jpg'), height: 200, crop: :fill) %>')"></div>
 
   <div class="d-flex align-items-center my-4 show-title">
   <div class="p-2">
@@ -7,8 +8,8 @@
   <div class="d-flex align-items-center p-2">
     <h1><%= @haircut.style %></h1><span class="haircut-rating ml-2 text-warning"><%= @haircut.avg_rating %> <i class="fas fa-star"></i></span>
   </div>
-</div>
-<div class="row d-flex align-items-center" style="margin: auto">
+  </div>
+  <div class="row d-flex align-items-center" style="margin: auto">
     <div class="col-5">
       <div class = "card-show-wrapper">
         <%= cl_image_tag (@haircut.image.attached? ? @haircut.image.key : 'd_placeholder_sl0v6p.jpg'), width: 200, height: 200, crop: :fill %>
@@ -16,11 +17,12 @@
           <h3><%= @haircut.user.full_name %></h3>
           <p class = "card-show-details"><%= @haircut.category %></p>
           <p class = "price"><span class = "discount-price">US$ <%= "#{'%.2f' % (@haircut.price * 0.98)}"%></span><span class = "original-price">US$ <%= '%.2f' % @haircut.price %></span></p>
-          <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-danger' %> <%= link_to 'Back', haircuts_path, class: 'text text-secondary' %>
+          <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-danger' %> <%= link_to 'Back', haircuts_path(anchor: "cards-wrapper"), class: 'text text-secondary' %>
         </div>
       </div>
     </div>
     <div class="col-7" style="background-image: url(https://via.placeholder.com/400); background-size: cover; width: 100%; height: 50vh; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05); background-position: center">
     </div>
+  </div>
   </div>
 </div>

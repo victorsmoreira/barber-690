@@ -1,8 +1,11 @@
-<div class="container">
-  <h1>New booking</h1>
-
-  <%= simple_form_for [@haircut, @booking] do |f| %>
-    <%= f.input :appointment %>
-    <%= f.submit "Book for US$#{'%.2f' % @haircut.price.round}", class: 'btn btn-primary' %> <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
-  <% end %>
+<div class="form-container">
+  <div class="d-flex flex-grow-1 justify-content-center w-100 ">
+    <div class="col-sm-12 col-md-8 col-lg-10 p-3 form">
+      <h1>New booking</h1>
+      <%= simple_form_for [@haircut, @booking] do |f| %>
+        <%= f.input :appointment %>
+        <%= f.submit "Book for US$#{'%.2f' % @haircut.price.round}", class: 'btn btn-danger' %> <%= link_to 'Cancel', haircut_path(@haircut), class: 'text text-secondary' %>
+      <% end %>
+    </div>
+  </div>
 </div>
