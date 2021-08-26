@@ -7,10 +7,21 @@ class PagesController < ApplicationController
 
   def seller
     @haircuts = current_user.haircuts
-    @bookings = Booking.includes(haircut: [:user]).where(haircut: { user: current_user })
+    @bookings = Booking.includes(haircut: [:user])
+                       .where(haircut: { user: current_user })
+                       .where('appointment > ?', Time.now)
+                       .order(appointment: :desc)
+    @past_bookings = Booking.includes(haircut: [:user])
+                            .where(haircut: { user: current_user })
+                            .where('appointment < ?', Time.now)
+                            .order(appointment: :desc)
   end
 
   def buyer
     @bookings = current_user.bookings
+                            .where('appointment > ?', Time.now)
+                            .order(appointment: :desc)
+    @past_bookings = current_user.bookings.where('appointment < ?', Time.now)
+                                 .order(appointment: :desc)
   end
 end

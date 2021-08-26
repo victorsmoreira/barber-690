@@ -1,0 +1,15 @@
+table > thead > tr {
+  color: $main-red;
+  background-color: $secondary-red;
+}
+
+table > tbody > tr {
+  &:hover {
+    transition: .2s;
+    background-color: $light-gray;
+  }
+}
+
+table .record-past {
+  color: $gray-details;
+}
