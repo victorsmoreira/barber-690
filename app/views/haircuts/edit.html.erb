@@ -1,7 +1,9 @@
-<div class="container">
-  <h1>Edit Haircut</h1>
-
-  <%= render 'form' %>
-
-  <% link_to 'Back to haircuts', :back %>
+<div class="form-container">
+  <div class="d-flex flex-grow-1 justify-content-center w-100 ">
+    <div class="col-sm-12 col-md-8 col-lg-10 p-3 form">
+      <h1>Add a new haircut</h1>
+      <%= render 'form' %>
+      <% link_to 'Back to haircuts', :back %>
+    </div>
+  </div>
 </div>

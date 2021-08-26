@@ -13,8 +13,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <div class='container p-2' style='background-color: white'>
+    <% if current_page?(haircuts_path) %>
+      <%= render 'shared/navbar_home' %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>

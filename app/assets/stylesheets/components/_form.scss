@@ -1,0 +1,40 @@
+.form-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 60vh;
+  background-color: white;
+  border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.form {
+  border-radius: 4px;
+  border: 1px solid $medium-gray;
+  box-shadow: 0px 1px 4px $shadow;
+  background-color: white;
+  &:hover {
+    border: 1px solid $gray-details;
+  }
+}

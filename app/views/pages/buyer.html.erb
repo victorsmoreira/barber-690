@@ -1,47 +1,52 @@
-<div>
-  <h2>My bookings</h2>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Barbier</th>
-        <th>Time</th>
-        <th>Address</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @bookings.each do |booking| %>
+<div class="container">
+  <div class="p-3">
+    <h1>My bookings</h1>
+    <br>
+    <table class='table'>
+      <thead>
         <tr>
-          <td><%= booking.haircut.user.full_name %></td>
-          <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
-          <td><%= booking.haircut.user.address %></td>
-          <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
-            <% if booking.appointment > Time.now %>
-              <div class="nav-item dropdown border-0">
-                <%= image_tag "dropdown.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                  <%# link_to 'Show', booking, class:'dropdown-item' %>
-                  <%= link_to 'Reschedule', edit_booking_path(booking), class:'dropdown-item' %>
-                  <%= link_to 'Cancel appointment', booking, class:'text-danger dropdown-item' , method: :delete, data: { confirm: 'Are you sure?' } %>
-                </div>
-              </div>
-            <% end %>
-          </td>
+          <th>Barbier</th>
+          <th>Time</th>
+          <th>Address</th>
+          <th>Price</th>
         </tr>
-      <% end %>
-      <% @past_bookings.each do |booking| %>
-        <tr class='record-past'>
-          <td><%= booking.haircut.user.full_name %></td>
-          <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
-          <td><%= booking.haircut.user.address %></td>
-          <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
-          <%= link_to edit_booking_path(booking) do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-        <tr>
-      <% end %>
-                 <!--Definir o link_to update bookings link_to 'Update'  -->
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.haircut.user.full_name %></td>
+            <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
+            <td><%= booking.haircut.user.address %></td>
+            <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
+              <% if booking.appointment > Time.now %>
+                <div class="nav-item dropdown border-0">
+                  <%= image_tag "dropdown.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                    <%= link_to 'Reschedule', edit_booking_path(booking), class:'dropdown-item' %>
+                    <%= link_to 'Cancel appointment', booking, class:'text-danger dropdown-item' , method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% @past_bookings.each do |booking| %>
+          <tr class='record-past'>
+            <td><%= booking.haircut.user.full_name %></td>
+            <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
+            <td><%= booking.haircut.user.address %></td>
+            <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
+            <%= link_to edit_booking_path(booking) do %>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            <% end %>
+          <tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
