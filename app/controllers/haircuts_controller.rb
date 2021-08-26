@@ -19,7 +19,15 @@ class HaircutsController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    @markers = [
+      {
+        id: @haircut.user.id,
+        lat: @haircut.user.latitude,
+        lng: @haircut.user.longitude
+      }
+    ]
+  end
 
   def update
     if @haircut.update(haircut_params)

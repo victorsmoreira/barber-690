@@ -21,8 +21,13 @@ class BookingsController < ApplicationController
   def edit; end
 
   def update
-    @booking.update(booking_params)
-    @booking.haircut.user == current_user ? redirect_to(seller_path) : redirect_to(buyer_path)
+
+    if @booking.update(booking_params)
+      @booking.haircut.user == current_user ? redirect_to(seller_path) : redirect_to(buyer_path)
+    else
+      render :edit
+    end
+
   end
 
   def index
