@@ -15,6 +15,9 @@
           <div class = 'card-show-content'>
             <h3><%= @haircut.user.full_name %></h3>
             <p class = "card-show-details"><%= @haircut.category %></p>
+            <% if user_signed_in? %>
+              <p class='text text-secondary'><i class="fas fa-map-marked-alt"></i> <%= @haircut.distance_to(current_user) %> km</p>
+            <% end %>
             <p class = "price"><span class = "discount-price">US$ <%= "#{'%.2f' % (@haircut.price * 0.98)}"%></span><span class = "original-price">US$ <%= '%.2f' % @haircut.price %></span></p>
             <%= link_to 'Book a haircut', new_haircut_booking_path(@haircut), class: 'btn btn-danger' %> <%= link_to 'Back', haircuts_path(anchor: "cards-wrapper"), class: 'text text-secondary' %>
           </div>

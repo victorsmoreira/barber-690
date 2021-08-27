@@ -20,6 +20,7 @@
 
 .navbar-home {
   justify-content: space-between;
+  align-items: flex-start;
   position: fixed;
   top: 0;
   width: 100%;
@@ -31,6 +32,7 @@
 
 .navbar-home-white {
   background-color: white;
+  align-items: center;
 }
 
 .navbar-home .navbar-collapse {

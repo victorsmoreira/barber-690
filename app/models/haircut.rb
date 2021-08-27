@@ -10,4 +10,10 @@ class Haircut < ApplicationRecord
     ratings = bookings.map(&:rating).compact
     ratings.any? ? (ratings.reduce(:+) / ratings.size.to_f).round(1) : '-'
   end
+
+  def distance_to(customer)
+    barbier_coord = [user.latitude, user.longitude]
+    user_coord = [customer.latitude, customer.longitude]
+    Geocoder::Calculations.distance_between(barbier_coord, user_coord).round(2)
+  end
 end
