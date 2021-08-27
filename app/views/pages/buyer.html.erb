@@ -37,13 +37,35 @@
             <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
             <td><%= booking.haircut.user.address %></td>
             <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
-            <%= link_to edit_booking_path(booking) do %>
-              <i class="fas fa-star text-warning"></i>
-              <i class="fas fa-star text-warning"></i>
-              <i class="fas fa-star text-warning"></i>
-              <i class="fas fa-star text-warning"></i>
-              <i class="fas fa-star text-warning"></i>
-            <% end %>
+
+              <div class="rating-stars">
+                <span class="rating">
+                  <%= link_to booking_path(booking, booking: { rating: 1 }), remote: true, method: :patch do %>
+                    <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 1 %>"></i>
+                  <% end %>
+                  <span class="rating">
+                    <%= link_to booking_path(booking, booking: { rating: 2 }), remote: true, method: :patch do %>
+                      <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 2 %>"></i>
+                    <% end %>
+                    <span class="rating">
+                      <%= link_to booking_path(booking, booking: { rating: 3 }), remote: true, method: :patch do %>
+                        <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 3 %>"></i>
+                      <% end %>
+                      <span class="rating">
+                        <%= link_to booking_path(booking, booking: { rating: 4 }), remote: true, method: :patch do %>
+                          <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 4 %>"></i>
+                        <% end %>
+                        <span class="rating">
+                          <%= link_to booking_path(booking, booking: { rating: 5 }), remote: true, method: :patch do %>
+                            <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 5 %>"></i>
+                          <% end %>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </div>
+
           <tr>
         <% end %>
       </tbody>

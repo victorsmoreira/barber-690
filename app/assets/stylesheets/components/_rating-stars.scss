@@ -1,0 +1,13 @@
+.rating-stars .rating {
+  transition: .1s;
+  color: $medium-gray;
+  a {
+    color: inherit;
+  }
+  &:hover {
+    color: $yellow;
+  }
+  .star-yellow {
+    color: $yellow;
+  }
+}
