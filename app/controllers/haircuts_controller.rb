@@ -21,14 +21,15 @@ class HaircutsController < ApplicationController
 
   def show
     @markers = [
-      {
-        id: @haircut.user.id,
-        lat: @haircut.user.latitude,
-        lng: @haircut.user.longitude,
-        # info_window: render_to_string(locals: { haircut: @haircut }),
-        image_url: helpers.asset_url('marker.png')
-      }
+      { id: @haircut.user.id, lat: @haircut.user.latitude, lng: @haircut.user.longitude,
+        image_url: helpers.asset_url('marker.png') }
     ]
+    if user_signed_in? && current_user.latitude.present?
+      customer = { id: current_user.id, lat: current_user.latitude, lng: current_user.longitude,
+                   image_url: helpers.asset_url('user.png') }
+      @markers << customer
+    end
+    @markers
   end
 
   def update
