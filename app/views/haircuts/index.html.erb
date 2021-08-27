@@ -25,6 +25,7 @@
               <span class='card-index-rating text-warning'><%= haircut.avg_rating %> <i class="fas fa-star"></i></span>
             </p>
             <p>US$ <%= '%.2f' % haircut.price %></p>
+            <p><strong><i class="fas fa-cut"></i> </strong><%= haircut.user.full_name %></p>
           </div>
         <% end %>
       </div>

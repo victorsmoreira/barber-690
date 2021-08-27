@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all if Rails.env.development?
+Haircut.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
+
 haircuts = %w[Undercut Militar Moicano]
 styles = %w[Baixo Médio Alto]
 
@@ -34,7 +38,7 @@ User.create(
 
 haircuts.each do |haircut|
   Haircut.create(
-    user_id: 1,
+    user: User.first,
     style: haircut,
     price: rand(10..50),
     category: styles.sample

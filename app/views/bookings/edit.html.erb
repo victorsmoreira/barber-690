@@ -2,16 +2,9 @@
   <div class="d-flex flex-grow-1 justify-content-center w-100 ">
     <div class="col-sm-12 col-md-8 col-lg-10 p-3 form">
       <h1>Edit Booking</h1>
-      <% if @booking.appointment > Time.now %>
-        <%= simple_form_for @booking do |f| %>
-          <%= f.input :appointment %>
-          <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
-        <% end %>
-      <% else %>
-        <%= simple_form_for @booking do |f| %>
-          <%= f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-          <%= f.submit class: 'btn btn-success' %>
-        <% end %>
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :appointment, as: :string, input_html: { type: 'datetime-local' } %>
+        <%= f.submit class: 'btn btn-danger' %> <%= link_to 'Cancel', :back, class: 'text text-secondary' %>
       <% end %>
     </div>
   </div>
