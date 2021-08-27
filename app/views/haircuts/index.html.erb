@@ -15,6 +15,9 @@
 
 <div class='container'>
   <div class="cards-wrapper">
+    <% if user_signed_in? && current_user.latitude %>
+      <% @haircuts = @haircuts.sort_by { |haircut| haircut.distance_to(current_user) } %>
+    <% end %>
     <% @haircuts.each do |haircut| %>
       <div class="card-index col-sm-12 col-md-6 col-lg-4">
         <%= link_to haircut, class:'d-flex' do %>
@@ -26,6 +29,12 @@
             </p>
             <p>US$ <%= '%.2f' % haircut.price %></p>
             <p><strong><i class="fas fa-cut"></i> </strong><%= haircut.user.full_name %></p>
+
+            <% if user_signed_in? && current_user.latitude %>
+              <p><i class="fas fa-map-marked-alt"></i> <%= haircut.distance_to(current_user) %> km</p>
+            <% end %>
+
+
           </div>
         <% end %>
       </div>
