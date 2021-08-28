@@ -38,32 +38,32 @@
             <td><%= booking.haircut.user.address %></td>
             <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
 
-              <div class="rating-stars">
-                <span class="rating">
+              <div class="rating-stars d-flex">
+                <div class="rating d-flex">
                   <%= link_to booking_path(booking, booking: { rating: 1 }), remote: true, method: :patch do %>
                     <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 1 %>"></i>
                   <% end %>
-                  <span class="rating">
+                  <div class="rating d-flex">
                     <%= link_to booking_path(booking, booking: { rating: 2 }), remote: true, method: :patch do %>
                       <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 2 %>"></i>
                     <% end %>
-                    <span class="rating">
+                    <div class="rating d-flex">
                       <%= link_to booking_path(booking, booking: { rating: 3 }), remote: true, method: :patch do %>
                         <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 3 %>"></i>
                       <% end %>
-                      <span class="rating">
+                      <div class="rating d-flex">
                         <%= link_to booking_path(booking, booking: { rating: 4 }), remote: true, method: :patch do %>
                           <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 4 %>"></i>
                         <% end %>
-                        <span class="rating">
+                        <div class="rating d-flex">
                           <%= link_to booking_path(booking, booking: { rating: 5 }), remote: true, method: :patch do %>
                             <i class="fas fa-star<%= ' star-yellow' if booking.rating.to_i >= 5 %>"></i>
                           <% end %>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
           <tr>

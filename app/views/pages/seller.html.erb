@@ -1,14 +1,16 @@
 <div class="container">
   <div class="p-3">
-  <h1>Barbier dashboard</h1>
+  <h1><%= current_user.first_name %> Coiffure</h1>
   <br>
   <div>
-    <h2>My Haircuts</h2>
+    <h2>Haircuts</h2>
     <table class='table'>
       <thead>
         <tr>
           <th>Style</th>
           <th>Category</th>
+          <th>Bookings <small>(total)</small></th>
+          <th>Rating <small>(total)</small></th>
           <th>Price</th>
         </tr>
       </thead>
@@ -18,6 +20,8 @@
           <tr>
             <td><%= haircut.style %></td>
             <td><%= haircut.category %></td>
+            <td><%= haircut.bookings.where('appointment > ?', Time.now).count %> <small class='text text-muted'>(<%= haircut.bookings.count %>)</small class='text text-secondary'></td>
+            <td><%= haircut.avg_rating %> <small class="text-muted">(<%= haircut.bookings.where('rating >= 1').count %>)</small> </td>
             <td class='d-flex justify-content-between'>US$ <%= '%.2f' % haircut.price %>
               <div class="nav-item dropdown border-0">
                 <%= image_tag "dropdown.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -36,11 +40,12 @@
   </div>
   <br><br>
   <div>
-    <h2>Upcoming haircuts</h2>
+    <h2>Bookings</h2>
     <table class='table'>
       <thead>
         <tr>
           <th>Customer</th>
+          <th>Haircut</th>
           <th>Appointment</th>
           <th>Rating</th>
           <th>Price</th>
@@ -52,6 +57,7 @@
         <% @bookings.each do |booking| %>
           <tr class='dropdown'>
             <td><%= booking.user.full_name %></td>
+            <td><%= booking.haircut.style %></td>
             <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
             <td><%= booking.rating %></td>
             <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
@@ -71,6 +77,7 @@
         <% @past_bookings.each do |booking| %>
           <tr class='record-past'>
             <td><%= booking.user.full_name %></td>
+            <td><%= booking.haircut.style %></td>
             <td><%= booking.appointment.strftime("%d/%m/%Y %H:%M") %></td>
             <td><%= booking.rating %></td>
             <td class='d-flex justify-content-between'>US$ <%= '%.2f' % booking.price %>
